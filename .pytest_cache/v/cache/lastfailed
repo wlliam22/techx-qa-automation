@@ -1,8 +1,0 @@
-{
-  "test_audit_demo.py::test_auditoria_bloqueo_motivo[chromium]": true,
-  "tests/docappoint/test_scheduling_patient.py::test_doca_sch_01_patient_book_no_advance_auto_accept[chromium]": true,
-  "tests/docappoint/test_agendamiento.py::test_doca_sch_01_patient_book_no_advance_auto_accept[chromium]": true,
-  "tests/docappoint/test_agendamiento.py::test_doca_sch_sec_01_price_tampering_prevention[chromium]": true,
-  "tests/docappoint/api/test_api_01_auth_contract.py::TestAuthAPIContract::test_login_contract_deep_freeze": true,
-  "tests/docappoint/api/test_api_03_data_minimization.py::TestDataMinimizationAPI::test_endpoint_data_minimization[POST-/login-data0]": true
-}

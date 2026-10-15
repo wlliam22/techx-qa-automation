@@ -25,7 +25,7 @@ class TestAuthAPIContract:
         
         headers = {
             "Accept": "application/json",
-            "x-vercel-protection-bypass": os.getenv("VERCEL_DOCAPPOINT_BYPASS_SECRET", "oL9J8uCUbCOQkpLd85zYXdpe2YvPACSZ")
+            "x-vercel-protection-bypass": os.getenv("VERCEL_DOCAPPOINT_BYPASS_SECRET", "sd"),
         }
 
         # 1. Ejecutar la llamada real a Staging
