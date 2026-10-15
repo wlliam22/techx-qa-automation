@@ -1,0 +1,19 @@
+[
+  "test_audit_demo.py::test_auditoria_bloqueo_motivo[chromium]",
+  "tests/docappoint/api/test_api_01_auth_contract.py::TestAuthAPIContract::test_login_contract_deep_freeze",
+  "tests/docappoint/api/test_api_03_data_minimization.py::TestDataMinimizationAPI::test_endpoint_data_minimization[GET-/conversations/user-data5]",
+  "tests/docappoint/api/test_api_03_data_minimization.py::TestDataMinimizationAPI::test_endpoint_data_minimization[GET-/doctor/my-availability-None]",
+  "tests/docappoint/api/test_api_03_data_minimization.py::TestDataMinimizationAPI::test_endpoint_data_minimization[GET-/notifications-data4]",
+  "tests/docappoint/api/test_api_03_data_minimization.py::TestDataMinimizationAPI::test_endpoint_data_minimization[GET-/users/me/onboarding-None]",
+  "tests/docappoint/api/test_api_03_data_minimization.py::TestDataMinimizationAPI::test_endpoint_data_minimization[POST-/doctor-turnos-data3]",
+  "tests/docappoint/api/test_api_03_data_minimization.py::TestDataMinimizationAPI::test_endpoint_data_minimization[POST-/login-data0]",
+  "tests/docappoint/api/test_api_04_auth_idor.py::TestAuthAccessControl::test_password_change_idor_protection",
+  "tests/docappoint/api/test_api_05_appointment_integrity.py::TestAppointmentIntegrity::test_appointment_state_and_price_tampering",
+  "tests/docappoint/api/test_api_06_stripe_tampering.py::TestStripeIntegrity::test_stripe_price_tampering",
+  "tests/docappoint/api/test_api_07_service_idor.py::TestServiceAccessControl::test_idor_cross_doctor_service",
+  "tests/docappoint/test_agendamiento.py::test_doca_sch_01_patient_book_no_advance_auto_accept[chromium]",
+  "tests/docappoint/test_agendamiento.py::test_doca_sch_sec_01_price_tampering_prevention[chromium]",
+  "tests/docappoint/test_audit_security.py::test_doca_50_sec_01_audit_data_minimization[chromium]",
+  "tests/docappoint/test_data_minimizacion.py::test_doca_61_sec_anonymous_doctor_data_minimization",
+  "tests/docappoint/test_scheduling_patient.py::test_doca_sch_01_patient_book_no_advance_auto_accept[chromium]"
+]

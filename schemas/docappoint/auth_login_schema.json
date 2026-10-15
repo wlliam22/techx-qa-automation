@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "ok": { "type": "boolean" },
+    "token": { "type": "string" },
+    "user": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "rol": { "type": "string", "enum": ["paciente", "medico", "asistente", "admin"] },
+        "email": { "type": "string" }
+      },
+      "required": ["id", "rol", "email"]
+    }
+  },
+  "required": ["ok", "token", "user"]
+}
