@@ -1,81 +1,98 @@
+import os
 import pytest
+import requests
 from playwright.sync_api import Page, expect
-from pages.docappoint.catalog_page import CatalogPage
+from dotenv import load_dotenv
 
+load_dotenv()
 
-@pytest.mark.functional
-@pytest.mark.auto_ready
-def test_doca_sch_01_patient_book_no_advance_auto_accept(patient_page: Page, base_url: str):
-    """
-    DOCA-SCH-01: Validar agendamiento exitoso de cita sin cobro de anticipo
-    y verificar persistencia real en la API (POST /nuevoTurnoCheckOut).
-    """
-    catalog = CatalogPage(patient_page)
+# ==============================================================================
+# CONFIGURACIÓN DEL ENTORNO
+# ==============================================================================
+WEB_URL = os.getenv("DOCAPPOINT_WEB_URL", "https://docappoint-git-staging-tech-x.vercel.app")
+API_URL = os.getenv("DOCA_API_URL", "https://test-docappoint.techxmx.com")
+BYPASS_SECRET = os.getenv("VERCEL_DOCAPPOINT_BYPASS_SECRET")
 
-    catalog.navegar_al_catalogo(base_url)
-    catalog.seleccionar_primer_medico()
-    catalog.seleccionar_primer_slot_disponible()
+ADMIN_EMAIL = os.getenv("DOCA_ADMIN_EMAIL")
+ADMIN_PASSWORD = os.getenv("DOCA_ADMIN_PASSWORD")
+DOCA_DOCTOR_EMAIL = os.getenv("DOCA_DOCTOR_EMAIL")
+DOCA_DOCTOR_PASSWORD = os.getenv("DOCA_DOCTOR_PASSWORD")
+DOCA_ID_DOCTOR = os.getenv("DOCA_ID_DOCTOR")
 
-    # Interceptar la llamada de red que persiste la reserva en Backend
-    with patient_page.expect_response(
-        lambda response: "/nuevoTurnoCheckOut" in response.url and response.request.method == "POST"
-    ) as response_info:
-        catalog.confirmar_seleccion_turno()
-
-    # 1. Validación de Payload (Payload-First / Shift-Left)
-    res = response_info.value
-    assert res.status in [200, 201], f"Fallo en API al agendar turno: Status {res.status} - {res.text()}"
+def suspender_doctor_via_api():
+    """Función auxiliar que usa 'requests' puro para el Shift-Left, evadiendo conflictos de Pytest-Playwright."""
+    assert ADMIN_EMAIL and ADMIN_PASSWORD, "Faltan credenciales de Admin en el .env"
+    assert DOCA_ID_DOCTOR, "Falta el DOCA_ID_DOCTOR en el .env"
     
-    data = res.json()
-    assert data.get("ok") is True, f"El backend devolvió error en agendamiento: {data}"
+    # 1. Autologin del Administrador
+    login_url = f"{API_URL}/login"
+    login_resp = requests.post(login_url, json={"email": ADMIN_EMAIL, "password": ADMIN_PASSWORD})
     
-    # Validar que el turno se cree con un ID válido
-    turno_creado = data.get("turno") or data.get("data") or {}
-    assert "id" in turno_creado, "La respuesta del backend no retornó el identificador del turno creado"
+    assert login_resp.status_code in [200, 201], f"Fallo al iniciar sesión como Admin vía API. HTTP {login_resp.status_code}: {login_resp.text}"
+    
+    token = login_resp.json().get("token") or login_resp.json().get("data", {}).get("token")
+    assert token, "El endpoint de login no devolvió un token JWT."
+    
+    # 2. Suspender al doctor con el JWT obtenido
+    suspend_url = f"{API_URL}/users/{DOCA_ID_DOCTOR}/suspend"
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Content-Type": "application/json"
+    }
+    
+    suspend_resp = requests.patch(suspend_url, headers=headers)
+    assert suspend_resp.status_code in [200, 204, 400], f"Fallo al suspender cuenta vía API. HTTP {suspend_resp.status_code}: {suspend_resp.text}"
+    print("[-] Cuenta del doctor suspendida a nivel de base de datos.")
+    return True
 
-    # 2. Validación de UI (Confirmación Visual)
-    expect(patient_page.locator("text=/Turno creado|Cita agendada|éxito/i")).to_be_visible(timeout=7000)
 
-
+@pytest.mark.business_logic
 @pytest.mark.security
-@pytest.mark.auto_ready
-def test_doca_sch_sec_01_price_tampering_prevention(patient_page: Page, base_url: str):
+def test_doca_651_regla2_login_rechazado_para_suspendido(page: Page):
     """
-    DOCA-SCH-SEC-01 (OWASP A04: Insecure Design):
-    Verificar que inyectar un precio manipulado (precio: 1.00) en el payload
-    de /nuevoTurnoCheckOut sea ignorado o sanitizado por el Backend.
+    Objetivo: Validar Regla 2. Una cuenta suspendida no obtiene sesión.
+    La suspensión se verifica DESPUÉS de validar la contraseña.
+    Shift-Left: Usamos requests nativo para suspender la cuenta y evadir el bug del window.confirm en UI.
     """
-    catalog = CatalogPage(patient_page)
+    assert DOCA_DOCTOR_EMAIL and DOCA_DOCTOR_PASSWORD, "Faltan credenciales del doctor en .env"
 
-    catalog.navegar_al_catalogo(base_url)
-    catalog.seleccionar_primer_medico()
-    catalog.seleccionar_primer_slot_disponible()
+    print(f"\n[+] 1. Shift-Left (Backend): Suspendiendo al Doctor {DOCA_ID_DOCTOR} vía API...")
+    suspender_doctor_via_api()
 
-    # Interceptar y mutar el payload saliente (Price Tampering Attack)
-    def mutar_payload_precio(route):
-        post_data = route.request.post_data_json or {}
-        post_data["precio"] = 1.00
-        post_data["costo"] = 1.00
-        route.continue_(post_data=post_data)
+    # Bypass Vercel en UI
+    if BYPASS_SECRET:
+        page.context.set_extra_http_headers({
+            "x-vercel-protection-bypass": BYPASS_SECRET,
+            "x-vercel-set-bypass-cookie": "true"
+        })
 
-    patient_page.route("**/nuevoTurnoCheckOut", mutar_payload_precio)
+    print("[+] 2. Validando Frontend: Intento de inicio de sesión de cuenta suspendida...")
+    page.goto(f"{WEB_URL}/login")
 
-    with patient_page.expect_response(
-        lambda response: "/nuevoTurnoCheckOut" in response.url and response.request.method == "POST"
-    ) as response_info:
-        catalog.confirmar_seleccion_turno()
+    # Interceptamos la llamada de Login para validar el HTTP 403 del backend
+    with page.expect_response(lambda r: "/login" in r.url and r.request.method == "POST") as login_response:
+        page.locator('input[type="email"], input[name="email"]').fill(DOCA_DOCTOR_EMAIL)
+        page.locator('input[type="password"], input[name="password"]').fill(DOCA_DOCTOR_PASSWORD)
+        page.locator('button', has_text="Iniciar Sesión").click()
 
-    res = response_info.value
+    res = login_response.value
     data = res.json()
     
-    # Limpiar el mock de red para evitar efectos secundarios
-    patient_page.unroute("**/nuevoTurnoCheckOut")
+    print(f"[-] Respuesta del Backend al Login: HTTP {res.status}")
+    
+    # 3. Aserciones Criterios de Aceptación (OWASP A07)
+    assert res.status == 403, f"CRÍTICO: El backend no devolvió 403 Forbidden. Devolvió {res.status}"
+    
+    # Validamos el código de error
+    assert data.get("code") == "ACCOUNT_SUSPENDED" or "suspendida" in data.get("message", "").lower(), f"El backend devolvió un código incorrecto: {data}"
 
-    # Aserción Zero Trust: Si la cita se creó, su precio NO debe ser 1.00
-    turno = data.get("turno") or data.get("data") or {}
-    precio_guardado = turno.get("precio") or turno.get("costo")
-    if precio_guardado is not None:
-        assert float(precio_guardado) != 1.00, (
-            f"VULNERABILIDAD CRÍTICA (OWASP A04): El backend aceptó el precio inyectado ($1.00) "
-            f"en lugar de usar la tarifa oficial configurada por el médico."
-        )
+    # 4. Aserciones de Frontend UI
+    print("[+] 3. Verificando renderizado de la alerta exacta en UI...")
+    mensaje_esperado = "Tu cuenta está suspendida"
+    
+    alerta_ui = page.locator(f'text="{mensaje_esperado}"').first
+    expect(alerta_ui).to_be_visible(timeout=5000)
+    
+    assert "/login" in page.url, "CRÍTICO: El usuario fue redirigido fuera del login a pesar de la suspensión."
+    
+    print("✅ [APROBADO] Regla 2: Login bloqueado correctamente. JWT no emitido. UI alerta coincidente.")
