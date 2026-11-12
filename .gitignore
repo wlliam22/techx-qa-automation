@@ -17,3 +17,38 @@ docs/asudir_spider/latest_run.txt
 
 # Pero mantener los resúmenes
 !docs/marla_spider/run_*/00_resumen.md
+
+# ==============================================================================
+# ARCHIVOS DE PRUEBA (se generan en runtime, NO se versionan)
+# ==============================================================================
+tests/**/assets/*.mp4
+tests/**/assets/*.jpg
+tests/**/assets/*.jpeg
+tests/**/assets/*.png
+tests/**/assets/*.pdf
+tests/**/assets/*.mov
+
+# Excepto los archivos "fixtures" pequeños que necesitemos versionar (si los hay)
+!tests/**/assets/.gitkeep
+!tests/**/assets/*_fixture.*
+
+# ==============================================================================
+# REPORTS Y ARTIFACTS
+# ==============================================================================
+reports/
+artifacts/
+docs/*_spider/
+docs/*/run_*/
+*.log
+
+# ==============================================================================
+# PYTHON
+# ==============================================================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+.pytest_cache/
