@@ -1,0 +1,420 @@
+# 🗺️ Mapa de Reconocimiento: Marla Díaz (Admin)
+
+## 📍 01_Home_Post_Login
+- **URL:** `https://marla-diaz-videos-git-staging-tech-x.vercel.app/tienda`
+- **HTML:** `docs\marla_spider\dom_01_Home_Post_Login.html`
+### 🎭 Aria Snapshot
+```yaml
+- banner:
+  - link "Marla Díaz — Inicio":
+    - /url: /
+    - text: marladiazi MARLA DÍAZ
+  - navigation:
+    - link "INICIO":
+      - /url: /
+    - link "TIENDA":
+      - /url: /tienda
+    - link "MIS CURSOS":
+      - /url: /mis-cursos
+    - link "MIS ÓRDENES":
+      - /url: /mis-ordenes
+    - link "ADMIN":
+      - /url: /admin
+    - link "admin":
+      - /url: /perfil
+    - button "Salir"
+  - text: Moneda
+  - combobox "Seleccionar moneda":
+    - option "MXN"
+    - option "USD" [selected]
+  - link:
+    - /url: /carrito
+    - img
+- main:
+  - heading "Gracias por tu interés" [level=1]
+  - paragraph: Aprende nuevas habilidades y/o mejora tus técnicas paso a paso, a tu ritmo desde casa con cursos prácticos y de por vida.
+  - 'link "Curso Prueba #4 US$100.00 🔥 1 compras Curso Prueba #4 Curso de Prueba para ver el funcionamiento de los cambios"':
+    - /url: /curso/7e83b4f2-639c-44cb-8d0e-e003457d2b02
+    - 'img "Curso Prueba #4"'
+    - text: US$100.00 🔥 1 compras
+    - 'heading "Curso Prueba #4" [level=3]'
+    - paragraph: Curso de Prueba para ver el funcionamiento de los cambios
+  - link "dgg US$100.00 🔥 2 compras dgg sdgsdf":
+    - /url: /curso/e629b71d-5548-48b1-a66d-6efed0f7a065
+    - img "dgg"
+    - text: US$100.00 🔥 2 compras
+    - heading "dgg" [level=3]
+    - paragraph: sdgsdf
+  - link "Sin preview US$22.00 🔥 3 compras Test 7 more":
+    - /url: /curso/44c7af24-2f79-4937-8054-47e38bd2f9f2
+    - text: Sin preview US$22.00 🔥 3 compras
+    - heading "Test 7" [level=3]
+    - paragraph: more
+  - link "Sin preview US$23.00 🔥 5 compras Curso test 6 asdasdasdas":
+    - /url: /curso/b7f0e9c5-21fc-4e93-bff3-9b2fddc4b06c
+    - text: Sin preview US$23.00 🔥 5 compras
+    - heading "Curso test 6" [level=3]
+    - paragraph: asdasdasdas
+  - link "Sin preview US$24.00 🔥 3 compras Curso 5 curso 5":
+    - /url: /curso/fc060836-17d4-42c1-9d7d-83202c847fd0
+    - text: Sin preview US$24.00 🔥 3 compras
+    - heading "Curso 5" [level=3]
+    - paragraph: curso 5
+  - link "Sin preview US$25.00 🔥 3 compras Curso test 4 test4":
+    - /url: /curso/6a686c60-6e30-4d67-9ace-a7b2c1c5b71d
+    - text: Sin preview US$25.00 🔥 3 compras
+    - heading "Curso test 4" [level=3]
+    - paragraph: test4
+  - link "Sin preview US$27.00 🔥 4 compras Curso M M Description":
+    - /url: /curso/39250a68-3a12-43c7-9a95-ddf5fe21d6ce
+    - text: Sin preview US$27.00 🔥 4 compras
+    - heading "Curso M" [level=3]
+    - paragraph: M Description
+  - 'link "Curso de Prueba #2 US$29.00 🔥 3 compras Curso de Prueba #2 Este es el curso de prueba #2 donde probaremos como funcion todo el flujo de creacion de cursos dent..."':
+    - /url: /curso/fa0699b4-91e7-4fcb-90ff-b12e116fc9e3
+    - 'img "Curso de Prueba #2"'
+    - text: US$29.00 🔥 3 compras
+    - 'heading "Curso de Prueba #2" [level=3]'
+    - paragraph: "Este es el curso de prueba #2 donde probaremos como funcion todo el flujo de creacion de cursos dent..."
+  - link "Curso de prueba 🔥 1 compras Curso de prueba Esto es un curso de prueba":
+    - /url: /curso/ebf7cc23-13ad-43d0-8fa0-59d466545256
+    - img "Curso de prueba"
+    - text: 🔥 1 compras
+    - heading "Curso de prueba" [level=3]
+    - paragraph: Esto es un curso de prueba
+- contentinfo:
+  - link "Marla Díaz — Inicio":
+    - /url: /
+    - text: marladiazi MARLA DÍAZ LIFESTYLE · RECETAS · HOGAR · VIAJES
+  - paragraph: Aprende nuevas habilidades con nuestros cursos en línea. Acceso inmediato y de por vida.
+  - heading "CONTÁCTANOS" [level=4]
+  - link "marladiazicursos@gmail.com":
+    - /url: mailto:marladiazicursos@gmail.com
+    - img
+    - text: marladiazicursos@gmail.com
+  - link "@marladiazi":
+    - /url: https://www.instagram.com/marladiazi?igsh=MWJlNm03OWZvbzgzMA%3D%3D&utm_source=qr
+    - img
+    - text: "@marladiazi"
+  - link "@marladiazi":
+    - /url: https://www.tiktok.com/@marladiazi?_r=1&_t=ZS-97huqHAbCdR
+    - img
+    - text: "@marladiazi"
+  - heading "SÍGUENOS" [level=4]
+  - link "Instagram @marladiazi":
+    - /url: https://www.instagram.com/marladiazi?igsh=MWJlNm03OWZvbzgzMA%3D%3D&utm_source=qr
+    - img
+  - link "TikTok @marladiazi":
+... (13 líneas más)
+
+```
+
+---
+
+## 📍 02_Lista_Cursos
+- **URL:** `https://marla-diaz-videos-git-staging-tech-x.vercel.app/admin/courses`
+- **HTML:** `docs\marla_spider\dom_02_Lista_Cursos.html`
+### 🎭 Aria Snapshot
+```yaml
+- banner:
+  - link "Marla Díaz — Inicio":
+    - /url: /
+    - text: marladiazi MARLA DÍAZ
+  - navigation:
+    - link "INICIO":
+      - /url: /
+    - link "TIENDA":
+      - /url: /tienda
+    - link "MIS CURSOS":
+      - /url: /mis-cursos
+    - link "MIS ÓRDENES":
+      - /url: /mis-ordenes
+    - link "ADMIN":
+      - /url: /admin
+    - link "admin":
+      - /url: /perfil
+    - button "Salir"
+  - text: Moneda
+  - combobox "Seleccionar moneda":
+    - option "MXN"
+    - option "USD" [selected]
+  - link:
+    - /url: /carrito
+    - img
+- main:
+  - heading "Gestionar Cursos" [level=1]
+  - paragraph: Administra tus cursos, módulos y videos
+  - link "Crear Nuevo Curso":
+    - /url: /admin/courses/new
+    - img
+    - text: Crear Nuevo Curso
+  - table:
+    - rowgroup:
+      - row "Portada Título Estado Precio Compras Fecha Acciones":
+        - columnheader "Portada"
+        - columnheader "Título"
+        - columnheader "Estado"
+        - columnheader "Precio"
+        - columnheader "Compras"
+        - columnheader "Fecha"
+        - columnheader "Acciones"
+    - rowgroup:
+      - 'row "Curso Prueba #4 Curso Prueba #4 Publicado $10,000.00 MXN / US$100.00 1 16/7/2026"':
+        - 'cell "Curso Prueba #4"':
+          - 'img "Curso Prueba #4"'
+        - 'cell "Curso Prueba #4"':
+          - strong: "Curso Prueba #4"
+        - cell "Publicado"
+        - cell "$10,000.00 MXN / US$100.00"
+        - cell "1"
+        - cell "16/7/2026"
+        - cell:
+          - button "Editar y gestionar contenido":
+            - img
+          - button "Eliminar":
+            - img
+      - row "dgg dgg Publicado $30,581.00 MXN / US$100.00 2 9/7/2026":
+        - cell "dgg":
+          - img "dgg"
+        - cell "dgg":
+          - strong: dgg
+        - cell "Publicado"
+        - cell "$30,581.00 MXN / US$100.00"
+        - cell "2"
+        - cell "9/7/2026"
+        - cell:
+          - button "Editar y gestionar contenido":
+            - img
+          - button "Eliminar":
+            - img
+      - row "Test 8 Borrador $100.00 MXN / US$77.00 0 3/7/2026":
+        - cell:
+          - img
+        - cell "Test 8":
+          - strong: Test 8
+        - cell "Borrador"
+        - cell "$100.00 MXN / US$77.00"
+        - cell "0"
+        - cell "3/7/2026"
+        - cell:
+          - button "Editar y gestionar contenido":
+            - img
+          - button "Eliminar":
+            - img
+      - row "regerg Borrador $520.00 MXN / US$88.00 0 2/7/2026":
+        - cell:
+          - img
+        - cell "regerg":
+          - strong: regerg
+        - cell "Borrador"
+        - cell "$520.00 MXN / US$88.00"
+        - cell "0"
+        - cell "2/7/2026"
+        - cell:
+          - button "Editar y gestionar contenido":
+            - img
+          - button "Eliminar":
+            - img
+      - row "Test 7 Publicado $333.00 MXN / US$22.00 3 24/6/2026":
+... (149 líneas más)
+
+```
+
+---
+
+## 📍 03_Curso_Seleccionado
+- **URL:** `https://marla-diaz-videos-git-staging-tech-x.vercel.app/admin/courses/new`
+- **HTML:** `docs\marla_spider\dom_03_Curso_Seleccionado.html`
+### 🎭 Aria Snapshot
+```yaml
+- banner:
+  - link "Marla Díaz — Inicio":
+    - /url: /
+    - text: marladiazi MARLA DÍAZ
+  - navigation:
+    - link "INICIO":
+      - /url: /
+    - link "TIENDA":
+      - /url: /tienda
+    - link "MIS CURSOS":
+      - /url: /mis-cursos
+    - link "MIS ÓRDENES":
+      - /url: /mis-ordenes
+    - link "ADMIN":
+      - /url: /admin
+    - link "admin":
+      - /url: /perfil
+    - button "Salir"
+  - text: Moneda
+  - combobox "Seleccionar moneda":
+    - option "MXN"
+    - option "USD" [selected]
+  - link:
+    - /url: /carrito
+    - img
+- main:
+  - heading "Crear Nuevo Curso" [level=1]
+  - paragraph: Define los datos básicos; luego agregarás módulos y videos
+  - heading "Información Básica" [level=2]
+  - text: Título *
+  - textbox "Título *":
+    - /placeholder: "Ej: Curso de Técnicas Avanzadas"
+  - text: Descripción
+  - textbox "Descripción":
+    - /placeholder: Describe el contenido del curso...
+  - text: Precio (MXN) *
+  - spinbutton "Precio (MXN) *"
+  - text: Precio (USD) *
+  - spinbutton "Precio (USD) *"
+  - checkbox "Acceso Gratuito (acceso sin compra)"
+  - text: Acceso Gratuito (acceso sin compra)
+  - heading "Portada" [level=2]
+  - text: Imagen de portada
+  - button "Imagen de portada Seleccionar imagen"
+  - img
+  - text: Seleccionar imagen Imagen de vista previa del curso (opcional).
+  - heading "Receta escrita" [level=2]
+  - text: Documento de receta (opcional)
+  - button "Documento de receta (opcional) Subir PDF o JPG"
+  - img
+  - text: "Subir PDF o JPG Formato: PDF o JPG/JPEG · Máximo 10 MB (opcional)"
+  - button "Cancelar"
+  - button "Crear y continuar"
+- contentinfo:
+  - link "Marla Díaz — Inicio":
+    - /url: /
+    - text: marladiazi MARLA DÍAZ LIFESTYLE · RECETAS · HOGAR · VIAJES
+  - paragraph: Aprende nuevas habilidades con nuestros cursos en línea. Acceso inmediato y de por vida.
+  - heading "CONTÁCTANOS" [level=4]
+  - link "marladiazicursos@gmail.com":
+    - /url: mailto:marladiazicursos@gmail.com
+    - img
+    - text: marladiazicursos@gmail.com
+  - link "@marladiazi":
+    - /url: https://www.instagram.com/marladiazi?igsh=MWJlNm03OWZvbzgzMA%3D%3D&utm_source=qr
+    - img
+    - text: "@marladiazi"
+  - link "@marladiazi":
+    - /url: https://www.tiktok.com/@marladiazi?_r=1&_t=ZS-97huqHAbCdR
+    - img
+    - text: "@marladiazi"
+  - heading "SÍGUENOS" [level=4]
+  - link "Instagram @marladiazi":
+    - /url: https://www.instagram.com/marladiazi?igsh=MWJlNm03OWZvbzgzMA%3D%3D&utm_source=qr
+    - img
+  - link "TikTok @marladiazi":
+    - /url: https://www.tiktok.com/@marladiazi?_r=1&_t=ZS-97huqHAbCdR
+    - img
+  - link "YouTube":
+    - /url: https://www.youtube.com/@marladiaz9452
+    - img
+  - heading "ENLACES" [level=4]
+  - navigation:
+    - link "Inicio":
+      - /url: /
+    - link "Tienda":
+      - /url: /tienda
+    - button "Salir"
+  - paragraph: © 2026 – Marla Díaz Cursos®
+```
+
+---
+
+## 📍 04_Estado_Curso
+- **URL:** `https://marla-diaz-videos-git-staging-tech-x.vercel.app/admin/courses/new`
+- **HTML:** `docs\marla_spider\dom_04_Estado_Curso.html`
+### 🎭 Aria Snapshot
+```yaml
+- banner:
+  - link "Marla Díaz — Inicio":
+    - /url: /
+    - text: marladiazi MARLA DÍAZ
+  - navigation:
+    - link "INICIO":
+      - /url: /
+    - link "TIENDA":
+      - /url: /tienda
+    - link "MIS CURSOS":
+      - /url: /mis-cursos
+    - link "MIS ÓRDENES":
+      - /url: /mis-ordenes
+    - link "ADMIN":
+      - /url: /admin
+    - link "admin":
+      - /url: /perfil
+    - button "Salir"
+  - text: Moneda
+  - combobox "Seleccionar moneda":
+    - option "MXN"
+    - option "USD" [selected]
+  - link:
+    - /url: /carrito
+    - img
+- main:
+  - heading "Crear Nuevo Curso" [level=1]
+  - paragraph: Define los datos básicos; luego agregarás módulos y videos
+  - heading "Información Básica" [level=2]
+  - text: Título *
+  - textbox "Título *":
+    - /placeholder: "Ej: Curso de Técnicas Avanzadas"
+  - text: Descripción
+  - textbox "Descripción":
+    - /placeholder: Describe el contenido del curso...
+  - text: Precio (MXN) *
+  - spinbutton "Precio (MXN) *"
+  - text: Precio (USD) *
+  - spinbutton "Precio (USD) *"
+  - checkbox "Acceso Gratuito (acceso sin compra)"
+  - text: Acceso Gratuito (acceso sin compra)
+  - heading "Portada" [level=2]
+  - text: Imagen de portada
+  - button "Imagen de portada Seleccionar imagen"
+  - img
+  - text: Seleccionar imagen Imagen de vista previa del curso (opcional).
+  - heading "Receta escrita" [level=2]
+  - text: Documento de receta (opcional)
+  - button "Documento de receta (opcional) Subir PDF o JPG"
+  - img
+  - text: "Subir PDF o JPG Formato: PDF o JPG/JPEG · Máximo 10 MB (opcional)"
+  - button "Cancelar"
+  - button "Crear y continuar"
+- contentinfo:
+  - link "Marla Díaz — Inicio":
+    - /url: /
+    - text: marladiazi MARLA DÍAZ LIFESTYLE · RECETAS · HOGAR · VIAJES
+  - paragraph: Aprende nuevas habilidades con nuestros cursos en línea. Acceso inmediato y de por vida.
+  - heading "CONTÁCTANOS" [level=4]
+  - link "marladiazicursos@gmail.com":
+    - /url: mailto:marladiazicursos@gmail.com
+    - img
+    - text: marladiazicursos@gmail.com
+  - link "@marladiazi":
+    - /url: https://www.instagram.com/marladiazi?igsh=MWJlNm03OWZvbzgzMA%3D%3D&utm_source=qr
+    - img
+    - text: "@marladiazi"
+  - link "@marladiazi":
+    - /url: https://www.tiktok.com/@marladiazi?_r=1&_t=ZS-97huqHAbCdR
+    - img
+    - text: "@marladiazi"
+  - heading "SÍGUENOS" [level=4]
+  - link "Instagram @marladiazi":
+    - /url: https://www.instagram.com/marladiazi?igsh=MWJlNm03OWZvbzgzMA%3D%3D&utm_source=qr
+    - img
+  - link "TikTok @marladiazi":
+    - /url: https://www.tiktok.com/@marladiazi?_r=1&_t=ZS-97huqHAbCdR
+    - img
+  - link "YouTube":
+    - /url: https://www.youtube.com/@marladiaz9452
+    - img
+  - heading "ENLACES" [level=4]
+  - navigation:
+    - link "Inicio":
+      - /url: /
+    - link "Tienda":
+      - /url: /tienda
+    - button "Salir"
+  - paragraph: © 2026 – Marla Díaz Cursos®
+```
+
+---
+

@@ -9,3 +9,11 @@ auth*.json
 __pycache__/
 *.pyc
 reports/*.html
+# Ignorar todas las ejecuciones del spider excepto los resúmenes
+docs/marla_spider/run_*/
+docs/marla_spider/latest_run.txt
+docs/asuduir_spider/run_*/
+docs/asudir_spider/latest_run.txt
+
+# Pero mantener los resúmenes
+!docs/marla_spider/run_*/00_resumen.md

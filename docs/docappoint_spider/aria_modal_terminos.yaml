@@ -1,0 +1,12 @@
+- dialog "Actualización de Documentos Legales":
+  - heading "Actualización de Documentos Legales" [level=2]
+  - paragraph: Hemos actualizado nuestros documentos legales para mejorar tu experiencia y seguridad en la plataforma. Es necesario que revises y aceptes la versión más reciente de Términos y Condiciones y Política de Privacidad.
+  - paragraph: Para continuar utilizando Docappoint, es necesario que revises y aceptes la versión más reciente de nuestros acuerdos legales.
+  - link "Ver Términos y Condiciones":
+    - /url: /terminos-y-condiciones
+  - link "Ver Política de Privacidad":
+    - /url: /politica-de-privacidad
+  - 'checkbox "He leído y acepto los nuevos documentos: Términos y Condiciones y Política de Privacidad."'
+  - paragraph: "He leído y acepto los nuevos documentos: Términos y Condiciones y Política de Privacidad."
+  - button "Aceptar y Continuar" [disabled]
+  - button "Cerrar sesión"

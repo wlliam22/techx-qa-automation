@@ -7,7 +7,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 # ==============================================================================
 # CONFIGURACIÓN DEL ENTORNO Y SECRETS (Zero Trust)
 # ==============================================================================
-TOKEN = os.getenv("STAGING_JWT_TOKEN")
+TOKEN = os.getenv("STAGING_JWT_AGUA_TOKEN")
 VERCEL_BYPASS = os.getenv("VERCEL_ASUDIR_BYPASS_SECRET")
 
 API_URL = "https://back-staging.asudir051.com/api/autorizaciones-de-riego"
